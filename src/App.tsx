@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import './App.css';
-import routes from './routes';
 import { LikedPicturesProvider } from './store/liked-context';
+import './App.css';
+import Navbar from './components/Navbar';
+import routes from './routes';
+import config from './utils/config';
 
-const appName = 'MiniInstagram';
-
-const App: React.FC = () => {
-	return (
-		<LikedPicturesProvider>
-			<div className="App">
+const App: React.FC = () => (
+	<LikedPicturesProvider>
+		<div className="container is-fluid">
+			<Router>
 				<Navbar />
-				<Router>
-					<Switch>
-						{routes.map((element) => {
-							document.title = `${element.title} | ${appName}`;
-							return <Route key={element.title} exact path={element!.path} children={element!.page} />;
-						})}
-						<Redirect from="/" to="/feed" />
-					</Switch>
-				</Router>
-			</div>
-		</LikedPicturesProvider>
-	);
-};
+				<Switch>
+					{routes.map((element) => {
+						document.title = `${element.title} | ${config.appName}`;
+						return <Route key={element.title} exact path={element!.path} children={element!.page} />;
+					})}
+					<Redirect from="/" to="/feed" />
+				</Switch>
+			</Router>
+		</div>
+	</LikedPicturesProvider>
+);
 
 export default App;

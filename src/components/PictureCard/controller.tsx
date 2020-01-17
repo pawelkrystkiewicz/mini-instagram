@@ -28,9 +28,9 @@ export default ({ link, id, insertDate }: IPictureCard) => {
 
 	//Prepare description with conditions - display only present elements
 	const description = [
-		id != null && <span>Picture #{id}</span>,
+		id != null && <span key={0}>Picture #{id}</span>,
 		insertDate != null && (
-			<span>
+			<span key={1}>
 				You liked this <TimeAgo date={insertDate} />
 			</span>
 		)

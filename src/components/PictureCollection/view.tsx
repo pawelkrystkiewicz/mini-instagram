@@ -20,7 +20,7 @@ export default ({ fetchMore, data }: IPictureCollectionView) => {
 	let rowKey = 0;
 	for (let link of data) {
 		cardRow.push(
-			<div className="col-md"><PictureCard id={index + 1} link={link} key={link + index} /></div>
+			<div className="col-md" key={index}><PictureCard id={index + 1} link={link} key={index}/></div>
 		);
 		if (cardRow.length === 3) {
 			cardList.push(<div className="row" key={rowKey}>{cardRow}</div>);

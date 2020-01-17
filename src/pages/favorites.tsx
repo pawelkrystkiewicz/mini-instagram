@@ -29,7 +29,7 @@ export default () => {
 			<div className="column is-half is-offset-one-quarter">
 				{!!data && data.length > 0 ? (
 					data.map(({ link, insertDate }: IPictureCard) => (
-						<PictureCard link={link} insertDate={insertDate} />
+						<PictureCard link={link} insertDate={insertDate} key={link} />
 					))
 				) : (
 					<NoLikes />

@@ -12,8 +12,8 @@ export default () => {
 
 	const navButtons = (
 		<div className="navbar-item is-flex-touch">
-			{routes.map(({ title, path, icon }: IRoute) => (
-				<a className="navbar-item" href={path}>
+			{routes.map(({ title, path, icon }: IRoute, index) => (
+				<a className="navbar-item" href={path} key={index}>
 					<i
 						className="material-icons"
 						/**

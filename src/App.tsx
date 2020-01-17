@@ -8,7 +8,7 @@ import config from './utils/config';
 const App: React.FC = () => (
 	// Wrap all children in liked pictures context provider
 	<LikedPicturesProvider>
-		<div className="container is-fluid">
+		<div className="container">
 			<Router>
 				{/* Add navbar */}
 				<Navbar />

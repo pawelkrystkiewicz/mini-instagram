@@ -12,7 +12,7 @@ export default ({ likeButton, link, pictureDescription }: IPictureCardView) => (
 		</div>
 		<div className="card-content">
 			<div className="level is-mobile">
-				<div className="level-left">{likeButton}</div>
+				<div className="level-left cursor-pointer">{likeButton}</div>
 				{pictureDescription}
 			</div>
 		</div>

@@ -12,29 +12,40 @@ const EndMessage = () => <p className="content--centered">{config.contentEndMess
  * in scrolling through content
  */
 
-export default ({ fetchMore, data }: IPictureCollectionView) => (
-	<div className="columns body-columns">
-		<div className="column is-half is-offset-one-quarter">
-			<InfiniteScroll
-				dataLength={data.length}
-				/**
-				 * If user is nearing content's
-				 * end then run function that will provide more
-				 * content: fetchMore will run api call again, then useEffect from component controller
-				 * will update the state and this component will render data based on updated state
-				 * from controller
-				 */
-				next={fetchMore}
-				hasMore={true}
-				loader={<Spinner />}
-				endMessage={<EndMessage />}
-			>
-				{/* Map all data into picture cards */}
-				{data.map((link: string, index: number) => {
-					console.log('rerender, images count:', data.length);
-					return [ <PictureCard id={index + 1} link={link} key={link + index} />, <br /> ];
-				})}
-			</InfiniteScroll>
-		</div>
-	</div>
-);
+export default ({ fetchMore, data }: IPictureCollectionView) => {
+
+	let cardList = [];
+	let index = 0;
+	let cardRow = [];
+	let rowKey = 0;
+	for (let link of data) {
+		cardRow.push(
+			<div className="col-md"><PictureCard id={index + 1} link={link} key={link + index} /></div>
+		);
+		if (cardRow.length === 3) {
+			cardList.push(<div className="row" key={rowKey}>{cardRow}</div>);
+			cardRow = [];
+			rowKey ++;
+		}
+		index ++;
+	}
+
+	return (
+		<InfiniteScroll
+			dataLength={data.length}
+			/**
+			 * If user is nearing content's
+			 * end then run function that will provide more
+			 * content: fetchMore will run api call again, then useEffect from component controller
+			 * will update the state and this component will render data based on updated state
+			 * from controller
+			 */
+			next={fetchMore}
+			hasMore={true}
+			loader={<Spinner />}
+			endMessage={<EndMessage />}
+		>
+			{ cardList }
+		</InfiniteScroll>
+	);
+}

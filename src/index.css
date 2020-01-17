@@ -1,24 +1,33 @@
 body {
-	max-height: 100vh;
-	max-width: 100vw;
-	margin: 0;
-	font-family: 'Rubik', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    max-height: 100vh;
+    max-width: 100vw;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
 .content--centered {
-	width: 100vw;
-	text-align: center;
+    width: 100vw;
+    text-align: center;
 }
 
 .favorites--description {
-	display: flex;
-	margin-top: 40vmin;
-	font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-	justify-content: center;
-	text-align: center
+    display: flex;
+    margin-top: 40vmin;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    justify-content: center;
+    text-align: center
+}
+
+#root {
+    padding-top: 40px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

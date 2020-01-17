@@ -8,7 +8,7 @@ export default () => {
 	/**
 	 * use asynchronous function with help from react-use lib
 	 */
-	const [ fetchState, fetchMore ] = useAsyncFn(async () => await getPictures(10));
+	const [ fetchState, fetchMore ] = useAsyncFn(async () => await getPictures(30));
 
 	const updateState = () => {
 		/**
